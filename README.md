@@ -2,8 +2,9 @@
 ---
 ## Preview of the Application
 
+![preview](https://github.com/user-attachments/assets/19288dfd-057c-48b2-9960-fd78ca95bb2f)
 
-https://github.com/user-attachments/assets/525c6109-cead-407b-8cb4-f148fac1f3a9
+
 ---
 ## Objectives:
 - Develop a user-friendly interface for the Domi platform.
@@ -20,8 +21,7 @@ https://github.com/user-attachments/assets/525c6109-cead-407b-8cb4-f148fac1f3a9
 - Integrates dynamic calculation and visual feedback for better user understanding.
 
 ## Technology Stack:
-- **Flutter:** Used to build responsive and visually appealing UI.
-- **Dart:** Primary language for the business logic of the application.
+- **Flutter:** Used to build UI.
 - **Bloc** Used for the state management of the app and seperating logic from the ui.
 ---
 ## Steps to Run the App Locally
