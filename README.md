@@ -2,7 +2,8 @@
 ---
 ## Preview of the Application
 
-![preview](https://github.com/user-attachments/assets/19288dfd-057c-48b2-9960-fd78ca95bb2f)
+![preview](https://github.com/user-attachments/assets/25417896-5d16-4450-a6d6-c2b1cfecd109)
+
 
 
 ---
