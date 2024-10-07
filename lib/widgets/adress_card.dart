@@ -105,7 +105,7 @@ class _AdressCardState extends State<AdressCard> {
                         ),
                         Text(
                           "Complete Address",
-                          style: TextStyle(color: colorSchema.tertiary),
+                          style: TextStyle(color: colorSchema.inverseSurface),
                         ),
                         SizedBox(
                           height: 12.h,
@@ -119,7 +119,11 @@ class _AdressCardState extends State<AdressCard> {
                                 controller: searchController,
                                 labelText: "4a building",
                                 icon: Image.asset("assets/place.png"),
-                                suffixIcon: Image.asset("assets/gps.png"),
+                                suffixIcon: GestureDetector(
+                                  onTap: ()=>bloc.add(LoadAddressEvent(
+                                      point:
+                                          const LatLng(27.967533, -82.455235))),
+                                  child: Image.asset("assets/gps.png")),
                                 onSubmit: (value) {
                                   bloc.add(LoadAddressEvent(
                                       point:
