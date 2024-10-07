@@ -1,10 +1,7 @@
 import 'package:domi_labs/features/home/bloc/home_bloc.dart';
 import 'package:domi_labs/features/home/home_screen.dart';
 import 'package:domi_labs/utils/themes/bloc/theme_bloc.dart';
-import 'package:domi_labs/utils/themes/dark_theme.dart';
-import 'package:domi_labs/utils/themes/light_theme.dart';
-import 'package:domi_labs/widgets/custom_slider.dart';
-import 'package:domi_labs/widgets/custom_slider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
