@@ -1,6 +1,4 @@
-# domi_labs
-
-A new Flutter project.
+# Domi Labs Assignment
 
 ## Getting Started
 
