@@ -26,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-   
   }
 
   @override
@@ -37,8 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return BlocListener<HomeBloc, HomeState>(
       listenWhen: (previous, current) => current is ActionState,
       listener: (context, state) {
-        
-        if(state is CompletedState){}
+        if (state is CompletedState) {}
       },
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -56,7 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           image: AssetImage("assets/temp_bg.jpg"),
                           fit: BoxFit.cover)),
                   child: FlutterMap(
-                    
                     options: MapOptions(
                         interactionOptions: const InteractionOptions(
                             flags:

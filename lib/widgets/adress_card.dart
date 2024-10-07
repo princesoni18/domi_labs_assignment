@@ -1,4 +1,3 @@
-
 import 'package:domi_labs/features/home/bloc/home_bloc.dart';
 import 'package:domi_labs/models/adress_model.dart';
 import 'package:domi_labs/widgets/customButton.dart';
@@ -27,7 +26,7 @@ class AdressCard extends StatefulWidget {
 }
 
 class _AdressCardState extends State<AdressCard> {
-  final TextEditingController searchController=TextEditingController();
+  final TextEditingController searchController = TextEditingController();
   final PageController _pageController = PageController();
   int pageNo = 1;
 
@@ -50,13 +49,13 @@ class _AdressCardState extends State<AdressCard> {
             children: [
               GestureDetector(
                 onTap: () {
-                  
                   if (pageNo != 1) {
                     print("TApped");
                     _pageController.animateToPage(0,
                         duration: const Duration(milliseconds: 450),
                         curve: Curves.easeInOut);
-                        bloc.add(LoadAddressEvent(point: const  LatLng(27.967533, -82.455235)));
+                    bloc.add(LoadAddressEvent(
+                        point: const LatLng(27.967533, -82.455235)));
                   } else {
                     searchController.clear();
                     bloc.add(RemoveLoadedAddresses());
@@ -78,7 +77,7 @@ class _AdressCardState extends State<AdressCard> {
           ),
           Expanded(
             child: PageView(
-            physics: const NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 controller: _pageController,
                 onPageChanged: (value) {
                   pageNo = value + 1;
@@ -114,20 +113,20 @@ class _AdressCardState extends State<AdressCard> {
                         BlocBuilder<HomeBloc, HomeState>(
                           bloc: bloc,
                           builder: (context, state) {
-
-
-                            if(state is HomeInitial|| state is AddressLoadedState){
-                            return CustomTextField(
-                              controller: searchController,
-                              
-                              labelText: "4a building",
-                              icon: Image.asset("assets/place.png"),
-                              suffixIcon: Image.asset("assets/gps.png"),
-                              onSubmit: (value){
-
-                                bloc.add(LoadAddressEvent(point:const LatLng(27.967533, -82.455235)));
-                              },
-                            );}
+                            if (state is HomeInitial ||
+                                state is AddressLoadedState) {
+                              return CustomTextField(
+                                controller: searchController,
+                                labelText: "4a building",
+                                icon: Image.asset("assets/place.png"),
+                                suffixIcon: Image.asset("assets/gps.png"),
+                                onSubmit: (value) {
+                                  bloc.add(LoadAddressEvent(
+                                      point:
+                                          const LatLng(27.967533, -82.455235)));
+                                },
+                              );
+                            }
 
                             return Container();
                           },
@@ -162,7 +161,15 @@ class _AdressCardState extends State<AdressCard> {
                                       prefix: Image.asset("assets/place.png"),
                                       suffix: null,
                                     ),
-                                  ),
+                                  )
+                                          .animate()
+                                          .fadeIn(
+                                              duration: const Duration(
+                                                  milliseconds: 300))
+                                          .slideY(
+                                              begin: -1,
+                                              duration: const Duration(
+                                                  milliseconds: 300)),
                                 ),
                               );
                             }
@@ -203,8 +210,9 @@ class _AdressCardState extends State<AdressCard> {
                           height: 10,
                         ),
                         Text(
-                          "Opening ${(bloc.value*60).toInt()} direct digital mails.",
-                          style: TextStyle(color: colorSchema.primary,fontSize: 12.sp),
+                          "Opening ${(bloc.value * 60).toInt()} direct digital mails.",
+                          style: TextStyle(
+                              color: colorSchema.primary, fontSize: 12.sp),
                         ),
                       ])
                       .animate()
@@ -214,15 +222,20 @@ class _AdressCardState extends State<AdressCard> {
           Align(
               alignment: Alignment.center,
               child: Custombutton(
-                  onTap: (){
-
-                    if(bloc.state is SelectedAddressState){
-                    _pageController.animateToPage(1, duration: const Duration(milliseconds: 450), curve: Curves.easeInOut);
-                     bloc.add(CalculateValuationEvent(value: 0.45));
+                  onTap: () {
+                    if (bloc.state is SelectedAddressState) {
+                      _pageController.animateToPage(1,
+                          duration: const Duration(milliseconds: 450),
+                          curve: Curves.easeInOut);
+                      bloc.add(CalculateValuationEvent(value: 0.45));
                     }
                   },
-                  color: bloc.selectedAddress!=null?colorSchema.primary:colorSchema.tertiary,
-                  title: "Claim This Address", height: 48.h, width: 320.w))
+                  color: bloc.selectedAddress != null
+                      ? colorSchema.primary
+                      : colorSchema.tertiary,
+                  title: "Claim This Address",
+                  height: 48.h,
+                  width: 320.w))
         ],
       ),
     );
